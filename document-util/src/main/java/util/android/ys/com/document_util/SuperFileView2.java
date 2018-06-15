@@ -85,6 +85,40 @@ public class SuperFileView2 extends FrameLayout implements TbsReaderView.ReaderC
 
     }
 
+
+    public void displayFile2(File mFile) {
+
+        if (mFile != null && !TextUtils.isEmpty(mFile.toString())) {
+
+            //获取存储卡路径、构成保存文件的目标路径
+            String dirName = "";
+            //SD卡具有读写权限、指定附件存储路径为SD卡上指定的文件夹
+            dirName = Environment.getExternalStorageDirectory() + "/AbpVideo/TbsReaderTemp";
+            File f = new File(dirName);
+            if (!f.exists()) {      //判断文件夹是否存在
+                f.mkdir();        //如果不存在、则创建一个新的文件夹
+            }
+
+            //加载文件
+            Bundle localBundle = new Bundle();
+            TLog.d(mFile.toString());
+            localBundle.putString("filePath", mFile.toString());
+
+            localBundle.putString("tempPath", Environment.getExternalStorageDirectory() + "/AbpVideo/" + "TbsReaderTemp");
+
+            if (this.mTbsReaderView == null)
+                this.mTbsReaderView = getTbsReaderView(context);
+            boolean bool = this.mTbsReaderView.preOpen(getFileType(mFile.toString()), false);
+            if (bool) {
+                this.mTbsReaderView.openFile(localBundle);
+            }
+        } else {
+            TLog.e("文件路径无效！");
+        }
+
+    }
+
+
     /***
      * 获取文件类型
      *

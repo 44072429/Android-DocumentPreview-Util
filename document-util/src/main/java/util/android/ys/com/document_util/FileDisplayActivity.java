@@ -64,7 +64,8 @@ public class FileDisplayActivity extends AppCompatActivity {
             downLoadFromNet(getFilePath(),mSuperFileView2);
 
         } else {
-            mSuperFileView2.displayFile(new File(getFilePath()));
+//            mSuperFileView2.displayFile(new File(getFilePath()));
+            mSuperFileView2.displayFile2(new File(getFilePath()));
         }
     }
 
