@@ -11,9 +11,6 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
 import pub.devrel.easypermissions.EasyPermissions;
 
 public class FilePreviewActivity extends AppCompatActivity {
