@@ -66,6 +66,7 @@ public class FileDisplayActivity extends AppCompatActivity {
         } else {
 //            mSuperFileView2.displayFile(new File(getFilePath()));
             mSuperFileView2.displayFile2(new File(getFilePath()));
+            
         }
     }
 
